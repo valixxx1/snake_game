@@ -19,7 +19,8 @@ public:
     y = std::rand() % SIZE;
   }
   void draw(void) {
-    printw("@ ");
+    addch('@' | COLOR_PAIR(1));
+    addch(' ');
   }
 };
 
@@ -131,27 +132,33 @@ class Snake
     void drawhead(void) {
         switch (direct) {
             case (int) 'w':
-                printw("^ ");
+                addch('^' | COLOR_PAIR(2));
+                addch(' ');
                 break;
             case (int) 'd':
-                printw("> ");
+                addch('>' | COLOR_PAIR(2));
+                addch(' ');
                 break;
             case (int) 'a':
-                printw("< ");
+                addch('<' | COLOR_PAIR(2));
+                addch(' ');
                 break;
             case (int) 's':
-                printw("v ");
+                addch('v' | COLOR_PAIR(2));
+                addch(' ');
                 break;
         }
     }
 
     void drawsegment(void) {
-        printw("# ");
+        addch('#' | COLOR_PAIR(2));
+        addch(' ');
     }
 };
 
 void drawempty(void) {
-    printw(". ");
+    addch('.' | COLOR_PAIR(3));
+    addch(' ');
 }
 
 void drawsquare(Snake& snake, Apple& apple, int x, int y)
@@ -236,6 +243,10 @@ int main(void)
     move(0, 0);
     cbreak();
     noecho();
+    start_color();
+    init_pair(1, COLOR_RED, COLOR_BLACK);
+    init_pair(2, COLOR_BLUE, COLOR_BLACK);
+    init_pair(3, COLOR_GREEN, COLOR_BLACK);
 
     initrandom();
     Apple apple;
