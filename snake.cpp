@@ -1,30 +1,26 @@
+#include <ncurses.h>
 #include <iostream>
 #include <ctime>
 
-#ifndef SIZE
-    #define SIZE 0x00000008
-#endif
+#define SIZE 8
 
 class Apple
 {
-    public:
+public:
+  int x = 0;
+  int y = 0;
 
-    int x = 0;
-    int y = 0;
-
-    void setpos(int x1, int y1) {
-        x = x1;
-        y = y1;
-    }
-
-    void setrandpos(void) {
-        x = rand() % SIZE;
-        y = rand() % SIZE;
-    }
-
-    void draw(void) {
-        std::cout << "@ ";
-    }
+  void setpos(int x1, int y1) {
+    x = x1;
+    y = y1;
+  }
+  void setrandpos(void) {
+    x = std::rand() % SIZE;
+    y = std::rand() % SIZE;
+  }
+  void draw(void) {
+    printw("@ ");
+  }
 };
 
 class Snake
@@ -135,27 +131,27 @@ class Snake
     void drawhead(void) {
         switch (direct) {
             case (int) 'w':
-                std::cout << "^ ";
+                printw("^ ");
                 break;
             case (int) 'd':
-                std::cout << "> ";
+                printw("> ");
                 break;
             case (int) 'a':
-                std::cout << "< ";
+                printw("< ");
                 break;
             case (int) 's':
-                std::cout << "v ";
+                printw("v ");
                 break;
         }
     }
 
     void drawsegment(void) {
-        std::cout << "# ";
+        printw("# ");
     }
 };
 
 void drawempty(void) {
-    std::cout << ". ";
+    printw(". ");
 }
 
 void drawsquare(Snake& snake, Apple& apple, int x, int y)
@@ -179,30 +175,27 @@ void drawsquare(Snake& snake, Apple& apple, int x, int y)
     exit: return;
 }
 
-void cls(void) {
-    system("clear");
-}
-
 void initrandom(void) {
-    srand((unsigned)time(0));
+  std::srand((unsigned)std::time(0));
 }
 
 void draw(Apple& apple, Snake& snake)
 {
-    cls();
+    move(0, 0);
     for (int x = 0; x < SIZE; x++) {
         for (int y = 0; y < SIZE; y++) {
             drawsquare(snake, apple, x, y);
         }
-        std::cout << '\n';
+        addch('\n');
     }
-    std::cout << '\n';
+    addch('\n');
+    refresh();
 }
 
 void changedirect(Snake& snake)
 {
-    char input;
-    std::cin >> input;
+    int input;
+    input = getch();
     switch (input) {
         case 'w':
             if (snake.direct != 's')
@@ -239,6 +232,11 @@ void moveapple(Apple& apple, Snake& snake)
 
 int main(void)
 {
+    initscr();
+    move(0, 0);
+    cbreak();
+    noecho();
+
     initrandom();
     Apple apple;
     Snake snake;
@@ -253,6 +251,8 @@ int main(void)
         else
             snake.move();
     }
-    std::cout << "\nGame over\n";
+    printw("\nGame over\n");
+    getch();
+    endwin();
     return 0;
 }
