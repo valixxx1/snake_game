@@ -1,6 +1,6 @@
-#include "game.h"
-#include "snake.h"
-#include "apple.h"
+#include "../include/game.h"
+#include "../include/snake.h"
+#include "../include/apple.h"
   Snake::Snake(void) {
     /* init X positions*/
     snakepos[0][0] = SIZE / 2;

@@ -1,5 +1,5 @@
-#include "game.h"
-#include "apple.h"
+#include "../include/game.h"
+#include "../include/apple.h"
 
 void Apple::setpos(int x1, int y1) {
     x = x1;

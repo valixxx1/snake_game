@@ -1,6 +1,6 @@
-#include "apple.h"
-#include "snake.h"
-#include "game.h"
+#include "../include/apple.h"
+#include "../include/snake.h"
+#include "../include/game.h"
 
 void drawempty(void) {
   addch('.' | COLOR_PAIR(3));

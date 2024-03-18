@@ -1,2 +1,2 @@
-snake: snake.cpp main.cpp apple.cpp
-	g++ -o snake snake.cpp main.cpp apple.cpp -lncurses
+snake: src/snake.cpp src/main.cpp src/apple.cpp
+	g++ -o snake src/snake.cpp src/main.cpp src/apple.cpp -lncurses
