@@ -1,2 +1,2 @@
 snake: snake.cpp
-	g++ -o snake snake.cpp -O3 -lncurses
+	g++ -o snake snake.cpp -lncurses
