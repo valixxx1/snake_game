@@ -1,7 +1,8 @@
 # What is it?
 This is a console based snake game that was made in **C++** for **Linux** (not Windows). It uses **ncurses** for drawing.
 
-![Sorry, this message wasn't showed. Maybe it's broken...](/img/snake1.jpg "This is the interface")<br>
+This is the interface:<br>
+![Sorry, this message wasn't showed. Maybe it's broken...](/img/snake1.jpg)<br>
 I think it is beautiful.
 
 # How to install?
