@@ -112,6 +112,7 @@ int main(void)
     else
       snake.move();
   }
+  draw(apple,snake);
   printw("\nGame over\n");
   cbreak();
   getch();

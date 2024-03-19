@@ -82,18 +82,20 @@
 
   bool Snake::inself(void) {
     for (int i = 0; i < length-1; i++) {
-      if (direct == 'w' && snakepos[length-1][0]-1 == snakepos[i][0] && \
-        snakepos[length-1][1] == snakepos[i][1])
-        return true;
-      else if (direct == 's' && snakepos[length-1][0]+1 == snakepos[i][0] && \
-        snakepos[length-1][1] == snakepos[i][1])
-        return true;
-      else if (direct == 'a' && snakepos[length-1][1]-1 == snakepos[i][1] && \
-        snakepos[length-1][0] == snakepos[i][0])
-        return true;
-      else if (direct == 'd' && snakepos[length-1][1]+1 == snakepos[i][1] && \
-        snakepos[length-1][0] == snakepos[i][0])
-        return true;
+      if (i != 0) {
+        if (direct == 'w' && snakepos[length-1][0]-1 == snakepos[i][0] && \
+          snakepos[length-1][1] == snakepos[i][1])
+          return true;
+        else if (direct == 's' && snakepos[length-1][0]+1 == snakepos[i][0] && \
+          snakepos[length-1][1] == snakepos[i][1])
+          return true;
+        else if (direct == 'a' && snakepos[length-1][1]-1 == snakepos[i][1] && \
+          snakepos[length-1][0] == snakepos[i][0])
+          return true;
+        else if (direct == 'd' && snakepos[length-1][1]+1 == snakepos[i][1] && \
+          snakepos[length-1][0] == snakepos[i][0])
+          return true;
+      }
     }
     return false;
   }
