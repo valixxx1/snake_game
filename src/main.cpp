@@ -1,6 +1,7 @@
 #include "../include/apple.h"
 #include "../include/snake.h"
 #include "../include/game.h"
+#include <ncurses.h>
 
 void drawempty(void) {
   addch('.' | COLOR_PAIR(3));
@@ -93,13 +94,16 @@ int main(void)
   init_pair(1, COLOR_RED, COLOR_BLACK);
   init_pair(2, COLOR_CYAN, COLOR_BLACK);
   init_pair(3, COLOR_GREEN, COLOR_BLACK);
+  halfdelay(1);
 
   initrandom();
   Apple apple;
   Snake snake;
   for (;;) {
     draw(apple,snake);
-    changedirect(snake);
+    for (int i = 0; i < 5; i++) {
+      changedirect(snake);
+    }
     if (snake.iseating(apple)) {
       snake.growup();
       moveapple(apple, snake);
@@ -109,6 +113,7 @@ int main(void)
       snake.move();
   }
   printw("\nGame over\n");
+  cbreak();
   getch();
   endwin();
   return 0;
