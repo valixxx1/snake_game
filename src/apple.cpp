@@ -1,3 +1,8 @@
+/* apple.cpp
+ * This is an interface of class Snake
+ * Made by valixxx1 (2024)
+ * License - MIT
+*/
 #include "../include/game.h"
 #include "../include/apple.h"
 

@@ -1,3 +1,8 @@
+/* snake.h
+ * This is an interface of the class Snake
+ * Made by valixxx1 (2024)
+ * License - MIT
+*/
 #ifndef SNAKE_H
 #define SNAKE_H
 #include "apple.h"

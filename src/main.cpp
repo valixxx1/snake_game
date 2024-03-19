@@ -1,3 +1,8 @@
+/* main.cpp
+ * This is the main file
+ * Made by valixxx1 (2024)
+ * License - MIT
+*/
 #include "../include/apple.h"
 #include "../include/snake.h"
 #include "../include/game.h"

@@ -1,3 +1,8 @@
+/* snake.cpp
+ * This is a file that has functions of class Snake
+ * Made by valixxx1 (2024)
+ * License - MIT
+*/
 #include "../include/game.h"
 #include "../include/snake.h"
 #include "../include/apple.h"
